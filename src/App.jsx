@@ -151,12 +151,12 @@ function App() {
             <h2 className="text-gray-900 text-3xl font-medium title-font mb-5 text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">
               Exclusive Unpublished Fares
             </h2>
-            <TelLink href="tel:+1-888-907-0866">
+            <TelLink href="/calling.html">
               <div className="relative mb-4 p-6 border border-gray-500 rounded-xl text-center text-4xl animate-pulse hoverState h-52 flex flex-col justify-center items-center">
                 Call Now To Receive The Best Deals for Your Flight.
               </div>
             </TelLink>
-            <TelLink href="tel:+1-888-907-0866">
+            <TelLink href="/calling.html">
             <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-full flex flex-row justify-center items-center gap-2 text-lg overflow-hidden animate-wiggle animate-infinite w-min whitespace-nowrap mx-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -260,7 +260,6 @@ function App() {
           </div>
         </div>
       </section>
-
       <section className="body-font bg-gradient-to-r from-orange-400 to-yellow-300 p-4 sm:p-10 lg:p-20">
         <div className="container p-6 sm:p-16 lg:p-16 rounded-md border-t-8 border-blue-950 mx-auto bg-white flex flex-col gap-4">
           <div className="flex flex-col text-center w-full mb-4 sm:mb-8">
@@ -418,7 +417,7 @@ function App() {
             />
             <span>
               Or Call{" "}
-              <TelLink href="tel:+1-888-907-0866" className="text-gray-700">
+              <TelLink href="/calling.html" className="text-gray-700">
                 1-888-907-0866
               </TelLink>
             </span>
@@ -548,7 +547,7 @@ function App() {
               deals!
             </h1>
             <div>
-              <TelLink href="tel:+1-888-907-0866">
+              <TelLink href="/calling.html">
                 <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-full flex flex-row justify-center items-center gap-2 text-lg overflow-hidden animate-wiggle animate-infinite w-min whitespace-nowrap mx-auto">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -670,7 +669,7 @@ function App() {
               the Best Deals and Customer Service!
             </h1>
             <div>
-              <TelLink href="tel:+1-888-907-0866">
+              <TelLink href="/calling.html">
                 <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-full flex flex-row justify-center items-center gap-2 text-lg overflow-hidden animate-wiggle animate-infinite w-min whitespace-nowrap mx-auto">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

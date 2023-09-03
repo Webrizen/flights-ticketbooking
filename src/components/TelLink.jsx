@@ -1,11 +1,11 @@
 import React from "react";
 
 const TelLink = ({ href, children }) => {
-  const isTelLink = href.startsWith("tel:");
+  const isTelLink = href.startsWith("/");
 
   const handleContextMenu = (e) => {
     if (isTelLink) {
-      e.preventDefault(); // Prevent right-click action on tel: links
+      e.preventDefault();
     }
   };
 
