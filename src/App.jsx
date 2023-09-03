@@ -102,7 +102,7 @@ function App() {
               Exclusive Unpublished Fares
             </h2>
             <a href="tel:+1-888-907-0866">
-              <div className="relative mb-4 p-6 border border-gray-500 rounded-xl text-center text-3xl animate-pulse hoverState">
+              <div className="relative mb-4 p-6 border border-gray-500 rounded-xl text-center text-3xl animate-pulse hoverState h-52">
                 Call Now To Receive The Best Deals for Your Flight.
               </div>
             </a>
