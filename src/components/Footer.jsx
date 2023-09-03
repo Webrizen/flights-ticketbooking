@@ -10,10 +10,10 @@ export default function Footer() {
             © {year} FOS Travel LLC — All rights reserved.
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a href="#" className="text-gray-500">
+            <a href="https://www.fostravelllc.com/terms-and-conditions" className="text-gray-500">
               Terms & Conditions
             </a>
-            <a href="#" className="ml-3 text-gray-500">
+            <a href="https://www.fostravelllc.com/privacy-policy" className="ml-3 text-gray-500">
              Privacy Policy
             </a>
           </span>
