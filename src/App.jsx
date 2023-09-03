@@ -1,4 +1,6 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
+import TelLink from './components/TelLink';
 
 function StarIcon() {
   return (
@@ -28,7 +30,22 @@ function StarRating({ numStars }) {
 }
 
 function App() {
-  
+  const [projects, setProjects] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/data.json")
+      .then((response) => response.json())
+      .then((data) => setProjects(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/testimonials.json")
+      .then((response) => response.json())
+      .then((data) => setTestimonials(data))
+      .catch((error) => console.error("Error fetching testimonials:", error));
+  }, []);
 
   return (
     <>
@@ -44,12 +61,14 @@ function App() {
       >
         <div className="absolute inset-0 bg-gray-100 opacity-80 h-full"></div>
         <div className="container mx-auto grid md:grid-cols-2 p-6 md:p-12 gap-6">
+          {/* Card 1 */}
           <div className="flex flex-col gap-2 text-center md:text-left">
             <h1 className="title-font sm:text-6xl text-3xl mb-4 font-semibold text-gray-900 animate-fade-right animate-once">
               24/7 Delta Airline Reservations & Support
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-2">
-              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
+            {/* Card 2 */}
+            <div className="md:grid grid-cols-1 md:grid-cols-2 gap-3 p-2 hidden">
+              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[4000ms]">
                 <h2 className="title-font font-medium text-3xl text-gray-900">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +87,7 @@ function App() {
                 </h2>
                 <p className="leading-relaxed">BOOKINGS</p>
               </div>
-              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
+              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[4000ms]">
                 <h2 className="title-font font-medium text-3xl text-gray-900">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -87,57 +106,58 @@ function App() {
                 </h2>
                 <p className="leading-relaxed">CANCELLATIONS</p>
               </div>
-              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
-                <h2 className="title-font font-medium text-3xl text-gray-900">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-8 h-8"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </h2>
-                <p className="leading-relaxed">CHANGES</p>
-              </div>
-              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
-                <h2 className="title-font font-medium text-3xl text-gray-900">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-8 h-8"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </h2>
-                <p className="leading-relaxed">REFUNDS</p>
-              </div>
+              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[4000ms]">
+              <h2 className="title-font font-medium text-3xl text-gray-900">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </h2>
+              <p className="leading-relaxed">CHANGES</p>
+            </div>
+            <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[4000ms]">
+              <h2 className="title-font font-medium text-3xl text-gray-900">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </h2>
+              <p className="leading-relaxed">REFUNDS</p>
+            </div>
             </div>
           </div>
-          <div className="bg-gray-100 rounded-lg p-6 flex flex-col md:ml-auto w-full mt-6 md:mt-0 z-40">
+          {/* Card 3 */}
+          <div className="rounded-lg p-6 flex flex-col md:ml-auto md:w-4/5 w-full mt-6 border-t-8 border-orange-500 md:mt-0 z-40 bg-[rgba(1,1,47,1)] text-white">
             <h2 className="text-gray-900 text-3xl font-medium title-font mb-5 text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">
               Exclusive Unpublished Fares
             </h2>
-            <a href="tel:+1-888-907-0866">
-              <div className="relative mb-4 p-6 border border-gray-500 rounded-xl text-center text-3xl animate-pulse hoverState h-52 flex flex-col justify-center items-center">
+            <TelLink href="tel:+1-888-907-0866">
+              <div className="relative mb-4 p-6 border border-gray-500 rounded-xl text-center text-4xl animate-pulse hoverState h-52 flex flex-col justify-center items-center">
                 Call Now To Receive The Best Deals for Your Flight.
               </div>
-            </a>
-            <a href="tel:+1-888-907-0866">
-              <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-full flex flex-row justify-center items-center gap-2 text-lg overflow-hidden animate-wiggle animate-infinite w-min whitespace-nowrap mx-auto">
+            </TelLink>
+            <TelLink href="tel:+1-888-907-0866">
+            <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-full flex flex-row justify-center items-center gap-2 text-lg overflow-hidden animate-wiggle animate-infinite w-min whitespace-nowrap mx-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -152,28 +172,101 @@ function App() {
                     d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0l-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 00-.38 1.21 12.035 12.035 0 007.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 011.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 01-2.25 2.25h-2.25z"
                   />
                 </svg>
-
                 <span>1-888-907-0866</span>
               </button>
-            </a>
-            <p className="text-xs text-gray-500 mt-3 text-center">
+            </TelLink>
+            <p className="text-lg text-white mt-3 text-center">
               LIVE AGENTS AVAILABLE 24/7/365
             </p>
           </div>
+          {/* Card 2 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-2 md:hidden">
+          <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[4000ms]">
+                <h2 className="title-font font-medium text-3xl text-gray-900">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-8 h-8"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </h2>
+                <p className="leading-relaxed">BOOKINGS</p>
+              </div>
+              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[4000ms]">
+                <h2 className="title-font font-medium text-3xl text-gray-900">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-8 h-8"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </h2>
+                <p className="leading-relaxed">CANCELLATIONS</p>
+              </div>
+            <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[4000ms]">
+              <h2 className="title-font font-medium text-3xl text-gray-900">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </h2>
+              <p className="leading-relaxed">CHANGES</p>
+            </div>
+            <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[4000ms]">
+              <h2 className="title-font font-medium text-3xl text-gray-900">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </h2>
+              <p className="leading-relaxed">REFUNDS</p>
+            </div>
+          </div>
         </div>
       </section>
+
       <section className="body-font bg-gradient-to-r from-orange-400 to-yellow-300 p-4 sm:p-10 lg:p-20">
         <div className="container p-6 sm:p-16 lg:p-16 rounded-md border-t-8 border-blue-950 mx-auto bg-white flex flex-col gap-4">
           <div className="flex flex-col text-center w-full mb-4 sm:mb-8">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 sm:mb-4">
               Cheap Flight Search
             </h1>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-              Discover Affordable Travel Options: Explore our 'Cheap Flight
-              Search' tool to find the best deals on Delta Airline reservations,
-              available 24/7 for your convenience. Unlock unbeatable prices and
-              embark on your next journey with ease.
-            </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto">
             <div className="relative flex-grow w-full">
@@ -314,10 +407,10 @@ function App() {
               </div>
             </div>
           </div>
-          <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-full text-lg mx-auto mt-4">
+          <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-full text-3xl mx-auto mt-4">
             Get Free Quote
           </button>
-          <button className="text-gray-500 border-0 py-2 px-8 focus:outline-none text-xs mx-auto flex flex-row items-center justify-center gap-2">
+          <button className="text-gray-500 border-0 py-2 px-8 focus:outline-none text-lg mx-auto flex flex-row items-center justify-center gap-2">
             <img
               src="/arrooo.png"
               alt="Arrow"
@@ -325,9 +418,9 @@ function App() {
             />
             <span>
               Or Call{" "}
-              <a href="tel:+1-888-907-0866" className="text-gray-700">
+              <TelLink href="tel:+1-888-907-0866" className="text-gray-700">
                 1-888-907-0866
-              </a>
+              </TelLink>
             </span>
           </button>
         </div>
@@ -352,14 +445,14 @@ function App() {
             <div className="p-4 md:w-1/3 hoverState">
               <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
                 <div className="flex items-center mb-3">
-                  <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
+                  <div className="w-16 h-16 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-4 h-4"
+                      className="w-8 h-8"
                     >
                       <path
                         strokeLinecap="round"
@@ -368,12 +461,12 @@ function App() {
                       />
                     </svg>
                   </div>
-                  <h2 className="text-gray-900 text-lg title-font font-medium">
+                  <h2 className="text-gray-900 text-2xl title-font font-medium">
                     Airline Bookings
                   </h2>
                 </div>
                 <div className="flex-grow">
-                  <p className="leading-relaxed text-base">
+                  <p className="leading-relaxed text-lg">
                     Our team of travel experts are available 24/7/365 to help
                     you find the perfect airline deals and save you money.
                   </p>
@@ -383,14 +476,14 @@ function App() {
             <div className="p-4 md:w-1/3 hoverState">
               <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
                 <div className="flex items-center mb-3">
-                  <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
+                  <div className="w-16 h-16 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-4 h-4"
+                      className="w-8 h-8"
                     >
                       <path
                         strokeLinecap="round"
@@ -399,12 +492,12 @@ function App() {
                       />
                     </svg>
                   </div>
-                  <h2 className="text-gray-900 text-lg title-font font-medium">
+                  <h2 className="text-gray-900 text-2xl title-font font-medium">
                     Flight Changes
                   </h2>
                 </div>
                 <div className="flex-grow">
-                  <p className="leading-relaxed text-base">
+                  <p className="leading-relaxed text-lg">
                     We understand that your plans can change unexpectedly. Our
                     team is available to assist you with any modifications you
                     need to make to your airline booking.
@@ -415,14 +508,14 @@ function App() {
             <div className="p-4 md:w-1/3 hoverState">
               <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
                 <div className="flex items-center mb-3">
-                  <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
+                  <div className="w-16 h-16 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-4 h-4"
+                      className="w-8 h-8"
                     >
                       <path
                         strokeLinecap="round"
@@ -431,12 +524,12 @@ function App() {
                       />
                     </svg>
                   </div>
-                  <h2 className="text-gray-900 text-lg title-font font-medium">
-                    Cancellations/Refunds
+                  <h2 className="text-gray-900 text-2xl title-font font-medium">
+                    Cancellations / Refunds
                   </h2>
                 </div>
                 <div className="flex-grow">
-                  <p className="leading-relaxed text-base">
+                  <p className="leading-relaxed text-lg">
                     If you need to cancel your trip, or there are any other
                     disruptions to your travel plans, our team is here to assist
                     you with the cancellation and refund process.
@@ -455,7 +548,7 @@ function App() {
               deals!
             </h1>
             <div>
-              <a href="tel:+1-888-907-0866">
+              <TelLink href="tel:+1-888-907-0866">
                 <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-full flex flex-row justify-center items-center gap-2 text-lg overflow-hidden animate-wiggle animate-infinite w-min whitespace-nowrap mx-auto">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -474,165 +567,47 @@ function App() {
 
                   <span>1-888-907-0866</span>
                 </button>
-              </a>
-              <p className="text-xs text-gray-800 mt-3 md:text-center">
+              </TelLink>
+              <p className="text-lg text-gray-800 mt-3 md:text-center">
                 LIVE AGENTS AVAILABLE 24/7/365
               </p>
             </div>
           </div>
         </div>
       </section>
-      <section className="text-gray-600 body-font">
+      <section className=" body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-20">
             <h1 className="sm:text-5xl text-2xl font-medium title-font mb-4 text-gray-900">
               Your Adventure Is Right Around the Corner!
             </h1>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-              Discover an array of captivating destinations and their enticing
-              pricing options in this section. Whether you're dreaming of exotic
-              getaways or cultural explorations, your next adventure is just a
-              click away. Explore our curated list of destinations and embark on
-              an unforgettable journey that fits your budget and travel
-              preferences.
-            </p>
           </div>
           <div className="flex flex-wrap -m-2">
-            <div className="p-2 lg:w-1/3 md:w-1/2 w-full hoverState">
-              <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img
-                  alt="team"
-                  className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                  src="https://cdn.pixabay.com/photo/2016/11/02/10/04/chicago-1791002_1280.jpg"
-                />
-                <div className="flex-grow">
-                  <h2 className="text-gray-900 title-font font-medium">
-                    Chicago
-                  </h2>
-                  <p className="text-gray-500">From $110</p>
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="p-2 lg:w-1/3 md:w-1/2 w-full hoverState"
+              >
+                <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                  <img
+                    alt={project.title}
+                    className="w-20 h-20 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
+                    src={project.imageSrc}
+                  />
+                  <div className="flex flex-col flex-grow gap-2">
+                    <h2 className="text-gray-900 title-font font-medium text-2xl">
+                      {project.title}
+                    </h2>
+                    <p className="text-gray-500 text-lg">
+                      From{" "}
+                      <span className="bg-gradient-to-r from-orange-400 to-yellow-300 text-white px-2 rounded-full font-bold animate-pulse  animate-infinite">
+                        ${project.price}
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="p-2 lg:w-1/3 md:w-1/2 w-full hoverState">
-              <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img
-                  alt="team"
-                  className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                  src="https://cdn.pixabay.com/photo/2016/01/08/18/00/las-vegas-1128811_640.jpg"
-                />
-                <div className="flex-grow">
-                  <h2 className="text-gray-900 title-font font-medium">
-                    Las Vegas
-                  </h2>
-                  <p className="text-gray-500">From $125</p>
-                </div>
-              </div>
-            </div>
-            <div className="p-2 lg:w-1/3 md:w-1/2 w-full hoverState">
-              <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img
-                  alt="team"
-                  className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                  src="https://d9hhrg4mnvzow.cloudfront.net/go.flights-ticketbooking.com/6b8e21f4-los-angeles_1046046000000000000000.jpg"
-                />
-                <div className="flex-grow">
-                  <h2 className="text-gray-900 title-font font-medium">
-                    Los Angeles
-                  </h2>
-                  <p className="text-gray-500">From $115</p>
-                </div>
-              </div>
-            </div>
-            <div className="p-2 lg:w-1/3 md:w-1/2 w-full hoverState">
-              <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img
-                  alt="team"
-                  className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                  src="https://cdn.pixabay.com/photo/2014/02/17/10/20/statue-of-liberty-267948_640.jpg"
-                />
-                <div className="flex-grow">
-                  <h2 className="text-gray-900 title-font font-medium">
-                    New York
-                  </h2>
-                  <p className="text-gray-500">From $130</p>
-                </div>
-              </div>
-            </div>
-            <div className="p-2 lg:w-1/3 md:w-1/2 w-full hoverState">
-              <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img
-                  alt="team"
-                  className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                  src="https://cdn.pixabay.com/photo/2016/02/14/02/21/miami-1198921_640.jpg"
-                />
-                <div className="flex-grow">
-                  <h2 className="text-gray-900 title-font font-medium">
-                    Miami
-                  </h2>
-                  <p className="text-gray-500">From $135</p>
-                </div>
-              </div>
-            </div>
-            <div className="p-2 lg:w-1/3 md:w-1/2 w-full hoverState">
-              <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img
-                  alt="team"
-                  className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                  src="https://cdn.pixabay.com/photo/2015/10/19/17/07/honolulu-996344_640.jpg"
-                />
-                <div className="flex-grow">
-                  <h2 className="text-gray-900 title-font font-medium">
-                    Honolulu
-                  </h2>
-                  <p className="text-gray-500">From $105</p>
-                </div>
-              </div>
-            </div>
-            <div className="p-2 lg:w-1/3 md:w-1/2 w-full hoverState">
-              <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img
-                  alt="team"
-                  className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                  src="https://cdn.pixabay.com/photo/2014/08/11/21/44/seattle-416065_640.jpg"
-                />
-                <div className="flex-grow">
-                  <h2 className="text-gray-900 title-font font-medium">
-                    Seattle
-                  </h2>
-                  <p className="text-gray-500">From $135</p>
-                </div>
-              </div>
-            </div>
-            <div className="p-2 lg:w-1/3 md:w-1/2 w-full hoverState">
-              <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img
-                  alt="team"
-                  className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                  src="https://cdn.pixabay.com/photo/2016/10/14/17/32/dallas-1740681_640.jpg"
-                />
-                <div className="flex-grow">
-                  <h2 className="text-gray-900 title-font font-medium">
-                    Dallas
-                  </h2>
-                  <p className="text-gray-500">From $120</p>
-                </div>
-              </div>
-            </div>
-            <div className="p-2 lg:w-1/3 md:w-1/2 w-full hoverState">
-              <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                <img
-                  alt="team"
-                  className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-                  src="https://cdn.pixabay.com/photo/2016/10/20/17/46/austin-texas-1756159_640.jpg"
-                />
-                <div className="flex-grow">
-                  <h2 className="text-gray-900 title-font font-medium">
-                    Austin
-                  </h2>
-                  <p className="text-gray-500">From $140</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -646,178 +621,44 @@ function App() {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-gray-50 opacity-70 h-full"></div>
-        <div className="container px-5 py-24 mx-auto z-40">
-          <h1 className="sm:text-5xl text-3xl font-medium text-black title-font mb-12 text-center z-40">
+        <div className="absolute inset-0 bg-gray-200 opacity-60 h-full"></div>
+        <div className="container px-5 py-24 mx-auto z-40 relative">
+          <h1 className="sm:text-5xl text-3xl font-medium text-black title-font mb-12 text-center relative z-40">
             Our Customers Love Us!
           </h1>
           <div className="flex flex-wrap -m-4 z-40">
-            <div className="p-4 md:w-1/2 w-full z-40">
-              <div className="h-full bg-gray-100 p-8 rounded">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  className="block w-5 h-5 text-gray-400 mb-4"
-                  viewBox="0 0 975.036 975.036"
-                >
-                  <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                </svg>
-                <p className="leading-relaxed mb-6">
-                  <b>Elevating the Booking Experience</b>, I had the pleasure of
-                  working with Paul from this agency, and I couldn't be more
-                  satisfied with the service I received. From the moment I
-                  inquired about my flight options, Paul demonstrated
-                  exceptional professionalism and knowledge. He not only helped
-                  me find the best deals but also made the booking process a
-                  breeze. His attention to detail and friendly demeanor made me
-                  feel valued as a customer. Paul truly went above and beyond to
-                  ensure that my travel plans were tailored to my preferences
-                  and budget. Thanks to him, I'm eagerly looking forward to my
-                  upcoming journey. A big thank you to Paul and the team for
-                  delivering top-notch service!
-                </p>
-                <a className="inline-flex items-center">
-                  <img
-                    alt="testimonial"
-                    src="/profile.svg"
-                    className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center bg-gray-200 p-3"
-                  />
-                  <span className="flex-grow flex flex-col pl-4">
-                    <span className="title-font font-medium text-gray-900">
-                      Paul
+            {testimonials.map((testimonial, index) => (
+              <div className="p-4 md:w-1/2 w-full z-40" key={index}>
+                <div className="h-full bg-gray-100 p-8 rounded-lg shadow-lg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    className="block w-8 h-8 text-indigo-500 mb-4 rotate-180"
+                    viewBox="0 0 975.036 975.036"
+                  >
+                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                  </svg>
+                  <p className="leading-relaxed mb-6 text-lg text-gray-800">
+                    <b>{testimonial.author}</b>, {testimonial.content}
+                  </p>
+                  <div className="inline-flex items-center">
+                    <img
+                      alt="testimonial"
+                      src="/profile.svg"
+                      className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center bg-gray-200 p-3"
+                    />
+                    <span className="flex-grow flex flex-col pl-4">
+                      <span className="title-font font-medium text-gray-900">
+                        {testimonial.author}
+                      </span>
+                      <span className="text-gray-500 text-sm">
+                        <StarRating numStars={testimonial.rating} />
+                      </span>
                     </span>
-                    <span className="text-gray-500 text-sm">
-                      <StarRating numStars={5} />
-                    </span>
-                  </span>
-                </a>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="p-4 md:w-1/2 w-full z-40">
-              <div className="h-full bg-gray-100 p-8 rounded">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  className="block w-5 h-5 text-gray-400 mb-4"
-                  viewBox="0 0 975.036 975.036"
-                >
-                  <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                </svg>
-                <p className="leading-relaxed mb-6">
-                  <b>Seamless Flight Changes</b>, My recent experience with
-                  Michel was nothing short of remarkable. I encountered
-                  unexpected changes in my travel schedule and needed to modify
-                  my flights. Michel's expertise and dedication shone through as
-                  he swiftly navigated the complexities of changing flights. He
-                  not only secured the new flights efficiently but also provided
-                  me with clear and concise information throughout the process.
-                  Michel's professionalism, combined with his ability to handle
-                  such situations with ease, turned what could have been a
-                  stressful ordeal into a smooth transition. Kudos to Michel for
-                  providing exceptional service and making my travel experience
-                  more manageable.
-                </p>
-                <a className="inline-flex items-center">
-                  <img
-                    alt="testimonial"
-                    src="/profile.svg"
-                    className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center bg-gray-200 p-3"
-                  />
-                  <span className="flex-grow flex flex-col pl-4">
-                    <span className="title-font font-medium text-gray-900">
-                      Michel
-                    </span>
-                    <span className="text-gray-500 text-sm">
-                      <StarRating numStars={5} />
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="p-4 md:w-1/2 w-full z-40">
-              <div className="h-full bg-gray-100 p-8 rounded">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  className="block w-5 h-5 text-gray-400 mb-4"
-                  viewBox="0 0 975.036 975.036"
-                >
-                  <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                </svg>
-                <p className="leading-relaxed mb-6">
-                  <b>Going the Extra Mile for Rebooking</b>, I had the privilege
-                  of receiving assistance from Robert Horkey when my travel
-                  plans hit a roadblock due to an airline credit issue. Robert's
-                  unwavering commitment to resolving the situation was truly
-                  commendable. He not only helped me navigate the intricate
-                  process of canceling and rebooking my flight using the credit
-                  but also made sure I was well-informed at every step. His
-                  patience and persistence paid off, as I successfully secured a
-                  new itinerary without losing my credit. Robert's dedication to
-                  ensuring my satisfaction as a customer goes beyond words. I'm
-                  immensely grateful for his efforts and the outstanding service
-                  provided. Thank you, Robert, for turning a challenging
-                  situation into a positive experience.
-                </p>
-                <a className="inline-flex items-center">
-                  <img
-                    alt="testimonial"
-                    src="/profile.svg"
-                    className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center bg-gray-200 p-3"
-                  />
-                  <span className="flex-grow flex flex-col pl-4">
-                    <span className="title-font font-medium text-gray-900">
-                      Robert Horkey
-                    </span>
-                    <span className="text-gray-500 text-sm">
-                      <StarRating numStars={5} />
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="p-4 md:w-1/2 w-full z-40">
-              <div className="h-full bg-gray-100 p-8 rounded">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  className="block w-5 h-5 text-gray-400 mb-4"
-                  viewBox="0 0 975.036 975.036"
-                >
-                  <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                </svg>
-                <p className="leading-relaxed mb-6">
-                  <b>The booking process was seamless and hassle-free.</b>,
-                  Their website is user-friendly, making it a breeze to find the
-                  best deals and customize my travel itinerary. I was pleasantly
-                  surprised to discover a wide range of destinations and
-                  flexible flight options to choose from.
-                  <br />
-                  <br />
-                  But what truly sets FOS Travels apart is their commitment to
-                  customer satisfaction. The moment I stepped on board, I was
-                  greeted by their friendly and attentive staff who went above
-                  and beyond to ensure my comfort throughout the flight. The
-                  in-flight amenities were top-notch, and the meals served were
-                  delicious and catered to a variety of dietary preferences.
-                </p>
-                <a className="inline-flex items-center">
-                  <img
-                    alt="testimonial"
-                    src="/profile.svg"
-                    className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center bg-gray-200 p-3"
-                  />
-                  <span className="flex-grow flex flex-col pl-4">
-                    <span className="title-font font-medium text-gray-900">
-                      John Tarki
-                    </span>
-                    <span className="text-gray-500 text-sm">
-                      <StarRating numStars={5} />
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -829,7 +670,7 @@ function App() {
               the Best Deals and Customer Service!
             </h1>
             <div>
-              <a href="tel:+1-888-907-0866">
+              <TelLink href="tel:+1-888-907-0866">
                 <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-full flex flex-row justify-center items-center gap-2 text-lg overflow-hidden animate-wiggle animate-infinite w-min whitespace-nowrap mx-auto">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -848,8 +689,8 @@ function App() {
 
                   <span>1-888-907-0866</span>
                 </button>
-              </a>
-              <p className="text-xs text-gray-800 mt-3 md:text-center">
+              </TelLink>
+              <p className="text-xl text-gray-800 mt-3 md:text-center">
                 LIVE AGENTS AVAILABLE 24/7/365
               </p>
             </div>

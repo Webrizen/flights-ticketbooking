@@ -1,0 +1,48 @@
+[
+    {
+      "title": "Chicago",
+      "imageSrc": "https://cdn.pixabay.com/photo/2016/11/02/10/04/chicago-1791002_1280.jpg",
+      "price": 110
+    },
+    {
+      "title": "Las Vegas",
+      "imageSrc": "https://cdn.pixabay.com/photo/2016/01/08/18/00/las-vegas-1128811_640.jpg",
+      "price": 125
+    },
+    {
+      "title": "Los Angeles",
+      "imageSrc": "https://d9hhrg4mnvzow.cloudfront.net/go.flights-ticketbooking.com/6b8e21f4-los-angeles_1046046000000000000000.jpg",
+      "price": 115
+    },
+    {
+      "title": "New York",
+      "imageSrc": "https://cdn.pixabay.com/photo/2014/02/17/10/20/statue-of-liberty-267948_640.jpg",
+      "price": 130
+    },
+    {
+      "title": "Miami",
+      "imageSrc": "https://cdn.pixabay.com/photo/2016/02/14/02/21/miami-1198921_640.jpg",
+      "price": 135
+    },
+    {
+      "title": "Honolulu",
+      "imageSrc": "https://cdn.pixabay.com/photo/2015/10/19/17/07/honolulu-996344_640.jpg",
+      "price": 105
+    },
+    {
+      "title": "Seattle",
+      "imageSrc": "https://cdn.pixabay.com/photo/2016/10/14/17/32/dallas-1740681_640.jpg",
+      "price": 135
+    },
+    {
+      "title": "Dallas",
+      "imageSrc": "https://cdn.pixabay.com/photo/2016/10/20/17/46/austin-texas-1756159_640.jpg",
+      "price": 120
+    },
+    {
+      "title": "Austin",
+      "imageSrc": "https://cdn.pixabay.com/photo/2016/10/20/17/46/austin-texas-1756159_640.jpg",
+      "price": 140
+    }
+  ]
+  
