@@ -13,13 +13,13 @@ function App() {
         }}
       >
         <div className="absolute inset-0 bg-gray-100 opacity-80 h-full"></div>
-        <div className="container mx-auto grid grid-cols-2 p-12 z-10">
-          <div className="flex flex-col gap-2 text-left">
+        <div className="container mx-auto grid md:grid-cols-2 p-6 md:p-12 gap-6">
+          <div className="flex flex-col gap-2 text-center md:text-left">
             <h1 className="title-font sm:text-6xl text-3xl mb-4 font-semibold text-gray-900 animate-fade-right animate-once">
               24/7 Delta Airline Reservations & Support
             </h1>
-            <div className="grid grid-cols-2 gap-3 p-2 w-2/3">
-              <div className="p-4 w-full text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-2">
+              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
                 <h2 className="title-font font-medium text-3xl text-gray-900">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@ function App() {
                 </h2>
                 <p className="leading-relaxed">BOOKINGS</p>
               </div>
-              <div className="p-4 w-full text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
+              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
                 <h2 className="title-font font-medium text-3xl text-gray-900">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@ function App() {
                 </h2>
                 <p className="leading-relaxed">CANCELLATIONS</p>
               </div>
-              <div className="p-4 w-full text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
+              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
                 <h2 className="title-font font-medium text-3xl text-gray-900">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ function App() {
                 </h2>
                 <p className="leading-relaxed">CHANGES</p>
               </div>
-              <div className="p-4 w-full text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
+              <div className="p-4 text-center flex justify-center items-center flex-col bg-slate-200 rounded-lg animate-rotate-x animate-infinite animate-duration-[2000ms]">
                 <h2 className="title-font font-medium text-3xl text-gray-900">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -97,12 +97,12 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-4/5 mt-10 md:mt-0 z-10">
+          <div className="bg-gray-100 rounded-lg p-6 flex flex-col md:ml-auto w-full mt-6 md:mt-0 z-50">
             <h2 className="text-gray-900 text-3xl font-medium title-font mb-5 text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">
               Exclusive Unpublished Fares
             </h2>
             <a href="tel:+1-888-907-0866">
-              <div className="relative mb-4 p-12 border border-gray-500 rounded-xl text-center text-3xl animate-pulse hoverState">
+              <div className="relative mb-4 p-6 border border-gray-500 rounded-xl text-center text-3xl animate-pulse hoverState">
                 Call Now To Receive The Best Deals for Your Flight.
               </div>
             </a>
@@ -132,10 +132,11 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="body-font bg-gradient-to-r from-orange-400 to-yellow-300 p-20">
-        <div className="container p-16 rounded-md border-t-8 border-blue-950 mx-auto bg-white flex flex-col gap-2">
-          <div className="flex flex-col text-center w-full mb-8">
-            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4">
+
+      <section className="body-font bg-gradient-to-r from-orange-400 to-yellow-300 p-4 sm:p-10 lg:p-20">
+        <div className="container p-6 sm:p-16 lg:p-16 rounded-md border-t-8 border-blue-950 mx-auto bg-white flex flex-col gap-4">
+          <div className="flex flex-col text-center w-full mb-4 sm:mb-8">
+            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 sm:mb-4">
               Cheap Flight Search
             </h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
@@ -145,8 +146,8 @@ function App() {
               embark on your next journey with ease.
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-3 w-3/4 mx-auto">
-            <div className="relative flex-grow w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto">
+          <div className="relative flex-grow w-full">
               <label
                 htmlFor="Flying-From"
                 className="leading-7 text-sm text-gray-600"
@@ -287,14 +288,13 @@ function App() {
           <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-full text-lg mx-auto mt-4">
             Get Free Quote
           </button>
-          <button className="text-gray-500 border-0 py-2 px-8 focus:outline-none text-xs mx-auto flex flex-row items-center justify-center gap-3">
+          <button className="text-gray-500 border-0 py-2 px-8 focus:outline-none text-xs mx-auto flex flex-row items-center justify-center gap-2">
             <img
               src="/arrooo.png"
               alt="Arrow"
               className="w-6 h-6 animate-fade-right animate-infinite"
             />
             <span>
-              {" "}
               Or Call{" "}
               <a href="tel:+1-888-907-0866" className="text-gray-700">
                 1-888-907-0866
@@ -303,6 +303,7 @@ function App() {
           </button>
         </div>
       </section>
+
       <section className="body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-20">
@@ -420,7 +421,7 @@ function App() {
       </section>
       <section className="body-font bg-gradient-to-r from-orange-400 to-yellow-300">
         <div className="container px-5 py-16 mx-auto">
-          <div className="lg:w-3/4 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
+          <div className="lg:w-3/4 flex flex-col sm:flex-row sm:items-center items-start mx-auto gap-4">
             <h1 className="flex-grow sm:pr-16 text-4xl font-bold title-font text-gray-900">
               Exclusive Unpublished Offers, Call now to secure the best flight
               deals!
@@ -446,7 +447,7 @@ function App() {
                   <span>1-888-907-0866</span>
                 </button>
               </a>
-              <p className="text-xs text-gray-800 mt-3 text-center">
+              <p className="text-xs text-gray-800 mt-3 md:text-center">
                 LIVE AGENTS AVAILABLE 24/7/365
               </p>
             </div>
@@ -493,7 +494,7 @@ function App() {
                 />
                 <div className="flex-grow">
                   <h2 className="text-gray-900 title-font font-medium">
-                  Las Vegas
+                    Las Vegas
                   </h2>
                   <p className="text-gray-500">From $125</p>
                 </div>
@@ -508,7 +509,7 @@ function App() {
                 />
                 <div className="flex-grow">
                   <h2 className="text-gray-900 title-font font-medium">
-                  Los Angeles
+                    Los Angeles
                   </h2>
                   <p className="text-gray-500">From $115</p>
                 </div>
