@@ -8,7 +8,7 @@ export default {
     extend: {
       backgroundImage: {
         'hero-pattern': "url('/hero-pattern.png')",
-        'footer-texture': "url('/img/footer-texture.png')",
+        'footer-texture': "url('/testimonials.png')",
       }
     }
   },
