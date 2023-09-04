@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
-import "../app.css";
-import TelLink from '../components/TelLink';
+import React from 'react'
+import TelLink from './TelLink'
 
-
-function formSection() {
-
+export default function formSection() {
   return (
     <>
-      <section className="body-font bg-gradient-to-r from-orange-400 to-yellow-300 p-4 sm:p-10 lg:p-20">
+     <section className="body-font bg-gradient-to-r from-orange-400 to-yellow-300 p-4 sm:p-10 lg:p-20">
         <div className="container p-6 sm:p-16 lg:p-16 rounded-md border-t-8 border-blue-950 mx-auto bg-white flex flex-col gap-4">
           <div className="flex flex-col text-center w-full mb-4 sm:mb-8">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 sm:mb-4">
@@ -170,9 +167,7 @@ function formSection() {
             </span>
           </span>
         </div>
-      </section>
+      </section> 
     </>
-  );
+  )
 }
-
-export default formSection;

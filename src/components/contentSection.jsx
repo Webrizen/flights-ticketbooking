@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-import "../app.css";
-import TelLink from '../components/TelLink';
+import React from 'react';
+import TelLink from './TelLink';
 
-function contentSection() {
-
+export default function contentSection() {
   return (
-    <>      
-      <section className="body-font bg-gradient-to-r from-orange-400 to-yellow-300">
+    <>
+     <section className="body-font bg-gradient-to-r from-orange-400 to-yellow-300">
         <div className="container px-5 py-16 mx-auto">
           <div className="lg:w-3/4 flex flex-col sm:flex-row sm:items-center items-start mx-auto gap-4">
             <h1 className="flex-grow sm:pr-16 text-4xl font-bold title-font text-gray-900">
@@ -40,9 +38,7 @@ function contentSection() {
             </div>
           </div>
         </div>
-      </section>
+      </section> 
     </>
-  );
+  )
 }
-
-export default contentSection;
