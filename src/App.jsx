@@ -5,7 +5,7 @@ import Pricing from './components/Pricing'; //5
 import Services from './components/Services'; //4
 import Testimonial from './components/Testimonial'; //6
 import ContentXSection from './components/ContentXSection'; //7
-import ContentSection from './components/ContentSection'; //3
+import contentSection from './components/contentSection'; //3
 
 const wrapWithDummyElements = (component, depth) => {
   if (depth === 0) {
@@ -22,7 +22,7 @@ function App() {
   // Wrap each component individually
   const wrappedHome = wrapWithDummyElements(<Home />, 100);
   const wrappedformSection = wrapWithDummyElements(<formSection />, 100);
-  const wrappedContentSection = wrapWithDummyElements(<ContentSection />, 100);
+  const wrappedcontentSection = wrapWithDummyElements(<contentSection />, 100);
   const wrappedServices = wrapWithDummyElements(<Services />, 100);
   const wrappedPricing = wrapWithDummyElements(<Pricing />, 100);
   const wrappedTestimonial = wrapWithDummyElements(<Testimonial />, 100);
@@ -33,7 +33,7 @@ function App() {
     wrappedHome,
     wrappedformSection,
     wrappedServices,
-    wrappedContentSection,
+    wrappedcontentSection,
     wrappedPricing,
     wrappedTestimonial,
     wrappedContentXSection,
