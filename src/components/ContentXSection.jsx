@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../app.css";
-import TelLink from '../components/TelLink';
+import TelLink from './TelLink';
 
 function StarIcon() {
   return (
@@ -30,7 +30,7 @@ function StarRating({ numStars }) {
 }
 
 
-function ContentXSection() {
+function contentXsection() {
 
   return (
     <>
@@ -73,4 +73,4 @@ function ContentXSection() {
   );
 }
 
-export default ContentXSection;
+export default contentXsection;
