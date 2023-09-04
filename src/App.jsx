@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './components/Home'; //1
-import FormSection from './components/FormSection'; //2
+import formSection from './components/formSection'; //2
 import Pricing from './components/Pricing'; //5
 import Services from './components/Services'; //4
 import Testimonial from './components/Testimonial'; //6
@@ -21,7 +21,7 @@ const wrapWithDummyElements = (component, depth) => {
 function App() {
   // Wrap each component individually
   const wrappedHome = wrapWithDummyElements(<Home />, 100);
-  const wrappedFormSection = wrapWithDummyElements(<FormSection />, 100);
+  const wrappedformSection = wrapWithDummyElements(<formSection />, 100);
   const wrappedContentSection = wrapWithDummyElements(<ContentSection />, 100);
   const wrappedServices = wrapWithDummyElements(<Services />, 100);
   const wrappedPricing = wrapWithDummyElements(<Pricing />, 100);
@@ -31,7 +31,7 @@ function App() {
   // Define the order in which you want to display the components
   const componentsOrder = [
     wrappedHome,
-    wrappedFormSection,
+    wrappedformSection,
     wrappedServices,
     wrappedContentSection,
     wrappedPricing,
