@@ -34,7 +34,7 @@ function Testimonial() {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    fetch("/api/testimonials.json")
+    fetch("https://flights-ticketbooking-vite.vercel.app/api/testimonials.json")
       .then((response) => response.json())
       .then((data) => setTestimonials(data))
       .catch((error) => console.error("Error fetching testimonials:", error));

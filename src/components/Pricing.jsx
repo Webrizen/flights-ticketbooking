@@ -26,7 +26,7 @@ function Pricing() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch("/api/data.json")
+    fetch("https://flights-ticketbooking-vite.vercel.app/api/data.json")
       .then((response) => response.json())
       .then((data) => setProjects(data))
       .catch((error) => console.error("Error fetching data:", error));
