@@ -1,7 +1,7 @@
 import React from 'react';
 import TelLink from './TelLink';
 
-export default function contentSection() {
+export default function ContentSection() {
   return (
     <>
      <section className="body-font bg-gradient-to-r from-orange-400 to-yellow-300">

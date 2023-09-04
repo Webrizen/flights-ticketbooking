@@ -1,7 +1,7 @@
 import React from 'react'
 import TelLink from './TelLink'
 
-export default function formSection() {
+export default function FormSection() {
   return (
     <>
      <section className="body-font bg-gradient-to-r from-orange-400 to-yellow-300 p-4 sm:p-10 lg:p-20">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../app.css";
-import TelLink from '../components/TelLink';
+import TelLink from './TelLink';
 
 function StarIcon() {
   return (
@@ -29,8 +29,7 @@ function StarRating({ numStars }) {
   return <div className="flex">{stars}</div>;
 }
 
-
-function Testimonial() {
+export default function Testimonials() {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
@@ -39,9 +38,8 @@ function Testimonial() {
       .then((data) => setTestimonials(data))
       .catch((error) => console.error("Error fetching testimonials:", error));
   }, []);
-
   return (
-    <>      
+    <>
       <section
         className="text-gray-600 body-font relative"
         style={{
@@ -94,7 +92,5 @@ function Testimonial() {
         </div>
       </section>
     </>
-  );
+  )
 }
-
-export default Testimonial;
