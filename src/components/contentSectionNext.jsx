@@ -30,7 +30,7 @@ function StarRating({ numStars }) {
 }
 
 
-function contentXsection() {
+function contentSectionNext() {
 
   return (
     <>
@@ -73,4 +73,4 @@ function contentXsection() {
   );
 }
 
-export default contentXsection;
+export default contentSectionNext;

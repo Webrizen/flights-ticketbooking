@@ -4,7 +4,7 @@ import FormSection from './components/formSection'; //2
 import Pricing from './components/Pricing'; //5
 import Services from './components/Services'; //4
 import Testimonial from './components/Testimonial'; //6
-import contentXsection from './components/contentXsection'; //7
+import contentSectionNext from './components/contentSectionNext' //7
 import contentSection from './components/contentSection'; //3
 import './App.css';
 
@@ -27,7 +27,7 @@ function App() {
   const wrappedServices = wrapWithDummyElements(<Services />, 100);
   const wrappedPricing = wrapWithDummyElements(<Pricing />, 100);
   const wrappedTestimonial = wrapWithDummyElements(<Testimonial />, 100);
-  const wrappedContentXSection = wrapWithDummyElements(<contentXsection />, 100);
+  const wrappedContentXSection = wrapWithDummyElements(<contentSectionNext />, 100);
 
   // Define the order in which you want to display the components
   const componentsOrder = [
