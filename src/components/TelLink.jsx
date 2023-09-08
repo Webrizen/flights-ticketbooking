@@ -9,12 +9,18 @@ const TelLink = ({ href, children }) => {
     }
   };
 
+  const handleClick = (e) => {
+    if (isTelLink) {
+      // Call the phone number here
+      window.location.href = `tel:+1-888-907-0866`;
+      e.preventDefault();
+    }
+  };
+
   return (
-    <>
-    <a href={href} onContextMenu={handleContextMenu}>
+    <a href={href} onContextMenu={handleContextMenu} onClick={handleClick}>
       {children}
     </a>
-    </>
   );
 };
 
